@@ -1,0 +1,13 @@
+require: rubocop-rails
+
+Metrics/LineLength:
+  Max: 120
+
+Style/SymbolArray:
+  EnforcedStyle: brackets
+
+Rails/HasAndBelongsToMany:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
