@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_01_153840) do
+ActiveRecord::Schema.define(version: 2019_07_01_170524) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(version: 2019_07_01_153840) do
     t.bigint "upc"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "series_id"
+    t.index ["series_id"], name: "index_comics_on_series_id"
   end
 
+  create_table "series", force: :cascade do |t|
+    t.string "name"
+    t.boolean "limited"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  add_foreign_key "comics", "series"
 end

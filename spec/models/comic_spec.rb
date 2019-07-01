@@ -10,6 +10,7 @@ RSpec.describe Comic, type: :model do
 
     it { should validate_presence_of(:issue) }
     it { should validate_numericality_of(:issue).only_integer }
+    it { should validate_uniqueness_of(:issue).scoped_to(:series_id) }
 
     it { should validate_numericality_of(:pages).only_integer.allow_nil }
 
@@ -17,5 +18,9 @@ RSpec.describe Comic, type: :model do
     it { should allow_value(3.99).for(:cover_price) }
     it { should_not allow_value(3.9).for(:cover_price) }
     it { should_not allow_value(3).for(:cover_price) }
+  end
+
+  describe 'associations' do
+    it { should belong_to(:series) }
   end
 end
