@@ -18,6 +18,8 @@ RSpec.describe Comic, type: :model do
     it { should allow_value(3.99).for(:cover_price) }
     it { should_not allow_value(3.9).for(:cover_price) }
     it { should_not allow_value(3).for(:cover_price) }
+
+    it { should validate_numericality_of(:marvel_id).only_integer.allow_nil }
   end
 
   describe 'associations' do
