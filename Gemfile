@@ -25,6 +25,11 @@ gem 'slim'
 gem 'image_processing', '~> 1.2'
 # Fetch Marvel API data
 gem 'marvel_api'
+# Markdown parser
+gem 'commonmarker'
+# TODO: Move faker to development group, once we're done faking
+gem 'faker'
+
 
 
 # Use Redis adapter to run Action Cable in production
@@ -41,9 +46,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.8'
   gem 'shoulda-matchers'
-  gem 'factory_bot_rails'
 end
 
 group :development do

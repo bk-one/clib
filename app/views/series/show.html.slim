@@ -1,0 +1,24 @@
+p#notice= notice
+
+h1 
+  = @series.name
+
+.container
+  .item
+  .item
+    p
+      = CommonMarker.render_html(@series.authors).html_safe
+    p
+      = CommonMarker.render_html(@series.artists).html_safe
+    p
+      = CommonMarker.render_html(@series.description || "").html_safe
+
+h2 
+  | Issues
+  = " (" + @series.comics.count.to_s + ")"
+
+.container
+
+  = link_to 'Edit', edit_series_path(@series)
+  | \
+  = link_to 'Back', series_index_path
