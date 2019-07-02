@@ -17,6 +17,8 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Auto-Generate friendly ids to nicer urls
+gem 'friendly_id'
 # Use Slim rendering engine. https://www.rubydoc.info/gems/slim/frames
 gem 'slim'
 # For image processing and transformation of active_storage

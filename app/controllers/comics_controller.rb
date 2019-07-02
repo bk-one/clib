@@ -5,7 +5,7 @@ class ComicsController < ApplicationController
   # GET /comics
   # GET /comics.json
   def index
-    @comics = Comic.all
+    @comics = @series.comics
   end
 
   # GET /comics/1
@@ -70,7 +70,7 @@ class ComicsController < ApplicationController
   end
 
   def set_series
-    @series = Series.find(params[:series_id])
+    @series = Series.friendly.find(params[:series_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
