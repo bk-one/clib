@@ -1,0 +1,32 @@
+p#notice= notice
+.container
+  .item
+    = image_tag  polymorphic_url(@comic.front_cover.variant(resize_to_limit: [300, 300])) if @comic.front_cover.attached?
+  .item
+    p
+      strong Title:
+      = @comic.title
+    p
+      strong Issue:
+      = @comic.issue
+    p
+      strong Pages:
+      = @comic.pages
+    p
+      strong Dimensions:
+      = @comic.dimensions
+    p
+      strong Cover price:
+      = @comic.cover_price
+    p
+      strong Currency:
+      = @comic.currency
+    p
+      strong Cover date:
+      = @comic.cover_date
+    p
+      strong Upc:
+      = @comic.upc
+    = link_to 'Edit', edit_series_comic_path(@comic.series, @comic)
+    | \
+    = link_to 'Back', series_comics_path(@comic.series, @comic)

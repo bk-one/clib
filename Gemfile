@@ -19,6 +19,10 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 # Use Slim rendering engine. https://www.rubydoc.info/gems/slim/frames
 gem 'slim'
+# For image processing and transformation of active_storage
+gem 'image_processing', '~> 1.2'
+# Fetch Marvel API data
+gem 'marvel_api'
 
 
 # Use Redis adapter to run Action Cable in production

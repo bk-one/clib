@@ -1,5 +1,6 @@
 class ComicsController < ApplicationController
   before_action :set_comic, only: [:show, :edit, :update, :destroy]
+  before_action :set_series
 
   # GET /comics
   # GET /comics.json
@@ -62,13 +63,18 @@ class ComicsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comic
-      @comic = Comic.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def comic_params
-      params.require(:comic).permit(:title, :issue, :pages, :dimensions, :cover_price, :currency, :cover_date, :upc)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comic
+    @comic = Comic.find(params[:id])
+  end
+
+  def set_series
+    @series = Series.find(params[:series_id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def comic_params
+    params.require(:comic).permit(:title, :issue, :pages, :dimensions, :cover_price, :currency, :cover_date, :upc)
+  end
 end

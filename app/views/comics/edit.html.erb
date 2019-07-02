@@ -1,6 +1,6 @@
 <h1>Editing Comic</h1>
 
-<%= render 'form', comic: @comic %>
+<%= render 'form', comic: @comic, series: @comic.series %>
 
-<%= link_to 'Show', @comic %> |
-<%= link_to 'Back', comics_path %>
+<%= link_to 'Show', series_comics_path(@comic.series, @comic) %> |
+<%= link_to 'Back', series_comics_path(@comic.series, @comic) %>

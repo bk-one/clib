@@ -4,9 +4,8 @@ RSpec.describe Comic, type: :model do
   describe 'validations' do
     it { should validate_presence_of(:title) }
 
-    it { should validate_presence_of(:upc) }
     it { should validate_uniqueness_of(:upc) }
-    it { should validate_numericality_of(:upc).only_integer.is_greater_than(100_000_000_000) }
+    it { should validate_numericality_of(:upc).only_integer.allow_nil.is_greater_than(100_000_000_000) }
 
     it { should validate_presence_of(:issue) }
     it { should validate_numericality_of(:issue).only_integer }

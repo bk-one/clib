@@ -6,6 +6,7 @@ RSpec.describe "comics/index", type: :view do
     @comics << create(:comic)
     @comics << create(:comic)
     assign(:comics, @comics)
+    assign(:series, @comics.first.series)
   end
 
   it "renders a list of comics" do
