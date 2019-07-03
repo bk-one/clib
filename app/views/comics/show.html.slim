@@ -25,6 +25,9 @@ p#notice= notice
       strong Cover date:
       = @comic.cover_date
     p
+      strong Official Blurb:
+      = @comic.blurb
+    p
       strong Upc:
       = @comic.upc
     = link_to 'Edit', edit_series_comic_path(@comic.series, @comic)

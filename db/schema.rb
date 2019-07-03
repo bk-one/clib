@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_02_152808) do
+ActiveRecord::Schema.define(version: 2019_07_03_164608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2019_07_02_152808) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "series_id"
     t.bigint "marvel_id"
+    t.text "blurb"
     t.index ["series_id"], name: "index_comics_on_series_id"
   end
 

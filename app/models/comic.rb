@@ -4,7 +4,7 @@ class Comic < ApplicationRecord
   validates :upc, numericality: { only_integer: true, greater_than: 100_000_000_000, allow_nil: true }, uniqueness: { allow_blank: true }
   validates :marvel_id, numericality: { only_integer: true, allow_nil: true }
   validates :pages, numericality: { only_integer: true, allow_nil: true }
-  validates :cover_price, numericality: { allow_nil: true }, format: { with: /\A\d+(?:\.\d{2})?\z/ }
+  validates :cover_price, numericality: { allow_nil: true }, format: { with: /\A\d+(?:\.\d{0,2})?\z/, allow_nil: true }
 
   belongs_to :series
 
@@ -13,5 +13,9 @@ class Comic < ApplicationRecord
 
   def cover_filename
     series.name + '-issue-' + issue.to_s
+  end
+
+  def update_from_marvel
+
   end
 end

@@ -29,7 +29,7 @@ class ComicsController < ApplicationController
 
     respond_to do |format|
       if @comic.save
-        format.html { redirect_to @comic, notice: 'Comic was successfully created.' }
+        format.html { redirect_to [@series, @comic], notice: 'Comic was successfully created.' }
         format.json { render :show, status: :created, location: @comic }
       else
         format.html { render :new }
@@ -43,7 +43,7 @@ class ComicsController < ApplicationController
   def update
     respond_to do |format|
       if @comic.update(comic_params)
-        format.html { redirect_to @comic, notice: 'Comic was successfully updated.' }
+        format.html { redirect_to [@series, @comic], notice: 'Comic was successfully updated.' }
         format.json { render :show, status: :ok, location: @comic }
       else
         format.html { render :edit }
@@ -57,7 +57,7 @@ class ComicsController < ApplicationController
   def destroy
     @comic.destroy
     respond_to do |format|
-      format.html { redirect_to comics_url, notice: 'Comic was successfully destroyed.' }
+      format.html { redirect_to series_comics_url(@series), notice: 'Comic was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
