@@ -7,6 +7,7 @@ class Comic < ApplicationRecord
   validates :cover_price, numericality: { allow_nil: true }, format: { with: /\A\d+(?:\.\d{0,2})?\z/, allow_nil: true }
 
   belongs_to :series
+  has_many :stories, dependent: :nullify
 
   has_one_attached :front_cover
   has_one_attached :back_cover

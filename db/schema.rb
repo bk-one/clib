@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_03_164608) do
+ActiveRecord::Schema.define(version: 2019_07_11_115236) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,17 @@ ActiveRecord::Schema.define(version: 2019_07_03_164608) do
     t.text "abstract"
     t.text "description"
     t.index ["slug"], name: "index_series_on_slug", unique: true
+  end
+
+  create_table "stories", force: :cascade do |t|
+    t.string "title"
+    t.string "slug"
+    t.string "code"
+    t.integer "pages"
+    t.date "publication_date"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
