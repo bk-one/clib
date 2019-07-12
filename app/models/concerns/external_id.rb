@@ -9,6 +9,10 @@ module ExternalId
     def add_external_id(provider, external_id)
       external_id_records.create! external_id_provider: provider, external_id: external_id
     end
+
+    def external_id(provider)
+      external_id_records.find_by(['external_id_provider = ?', provider]).external_id
+    end
   end
 
   class_methods do

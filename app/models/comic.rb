@@ -3,7 +3,7 @@ class Comic < ApplicationRecord
   # extend FriendlyId
 
   validates :title, presence: true
-  validates :issue, numericality: { only_integer: true }, presence: true, uniqueness: { scope: :series_id }
+  validates :issue, numericality: { only_integer: false }, presence: true, uniqueness: { scope: :series_id }
   validates :upc, numericality: { only_integer: true, greater_than: 100_000_000_000, allow_nil: true },
                   uniqueness: { allow_blank: true }
   validates :marvel_id, numericality: { only_integer: true, allow_nil: true }

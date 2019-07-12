@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_11_232531) do
+ActiveRecord::Schema.define(version: 2019_07_12_003242) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2019_07_11_232531) do
 
   create_table "comics", force: :cascade do |t|
     t.string "title"
-    t.integer "issue"
+    t.decimal "issue", precision: 4, scale: 1
     t.integer "pages"
     t.string "dimensions"
     t.decimal "cover_price", precision: 3, scale: 2

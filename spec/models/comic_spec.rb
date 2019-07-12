@@ -8,8 +8,9 @@ RSpec.describe Comic, type: :model do
     it { should validate_numericality_of(:upc).only_integer.allow_nil.is_greater_than(100_000_000_000) }
 
     it { should validate_presence_of(:issue) }
-    it { should validate_numericality_of(:issue).only_integer }
+    it { should validate_numericality_of(:issue) }
     it { should validate_uniqueness_of(:issue).scoped_to(:series_id) }
+    it { should allow_value(0.5).for(:issue) }
 
     it { should validate_numericality_of(:pages).only_integer.allow_nil }
 
