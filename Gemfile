@@ -30,6 +30,8 @@ gem 'commonmarker'
 # TODO: Move faker to development group, once we're done faking
 gem 'faker'
 
+gem 'nokogiri'
+
 
 
 # Use Redis adapter to run Action Cable in production

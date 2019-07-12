@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class Comic < ApplicationRecord
   include ExternalId
   # extend FriendlyId
@@ -18,5 +20,10 @@ class Comic < ApplicationRecord
 
   def cover_filename
     series.name + '-issue-' + issue.to_s
+  end
+
+  def replace_cover(url)
+    io_object = open(url)
+    front_cover.attach(io: io_object, filename: cover_filename + '.' + url.split(/\./).last)
   end
 end
