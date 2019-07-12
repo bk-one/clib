@@ -87,8 +87,8 @@ class MarvelWrapper
   def self.sanitize_job_names(job_name)
     case job_name
     when 'penciller (cover)'
-      job_name = :cover_artist
+      job_name = 'cover_artist'
     end
-    return job_name if Job::VALID_JOB_NAMES.include?(job_name.to_sym)
+    return job_name if Job::VALID_JOB_NAMES.include?(job_name)
   end
 end
