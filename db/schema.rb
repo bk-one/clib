@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_12_054025) do
+ActiveRecord::Schema.define(version: 2019_07_12_055127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,17 @@ ActiveRecord::Schema.define(version: 2019_07_12_054025) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.bigint "person_id"
+    t.string "creative_work_type"
+    t.bigint "creative_work_id"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creative_work_type", "creative_work_id"], name: "index_jobs_on_creative_work_type_and_creative_work_id"
+    t.index ["person_id"], name: "index_jobs_on_person_id"
   end
 
   create_table "people", force: :cascade do |t|

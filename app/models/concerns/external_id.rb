@@ -4,7 +4,7 @@ module ExternalId
   extend ActiveSupport::Concern
 
   included do
-    has_many :external_id_records, as: :entity, dependent: :destroy
+    has_many :external_id_records, as: :entity, dependent: :delete_all
 
     def add_external_id(provider, external_id)
       external_id_records.create! external_id_provider: provider, external_id: external_id
@@ -16,7 +16,7 @@ module ExternalId
   end
 
   class_methods do
-    def find_by_external_id(provider, external_id)
+    def with_external_id(provider, external_id)
       joins(:external_id_records).find_by(
         ['external_id_provider = ? AND external_id_records.external_id = ?', provider, external_id.to_s]
       )

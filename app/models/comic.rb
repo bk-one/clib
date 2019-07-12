@@ -13,7 +13,10 @@ class Comic < ApplicationRecord
   validates :cover_price, numericality: { allow_nil: true }, format: { with: /\A\d+(?:\.\d{0,2})?\z/, allow_nil: true }
 
   belongs_to :series
-  has_many :stories, dependent: :nullify
+  # has_many :stories, dependent: :nullify
+  has_many :jobs, dependent: :delete_all, as: :creative_work
+  has_many :artists, -> { where(['jobs.name = ?', :artist]) }, through: :jobs, source: :person
+  has_many :writers, -> { where(['jobs.name = ?', :writer]) }, through: :jobs, source: :person
 
   has_one_attached :front_cover
   has_one_attached :back_cover
