@@ -1,4 +1,7 @@
 class Comic < ApplicationRecord
+  include ExternalId
+  extend FriendlyId
+
   validates :title, presence: true
   validates :issue, numericality: { only_integer: true }, presence: true, uniqueness: { scope: :series_id }
   validates :upc, numericality: { only_integer: true, greater_than: 100_000_000_000, allow_nil: true }, uniqueness: { allow_blank: true }
