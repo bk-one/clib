@@ -22,7 +22,7 @@ gem 'friendly_id'
 # Use Slim rendering engine. https://www.rubydoc.info/gems/slim/frames
 gem 'slim'
 # For image processing and transformation of active_storage
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 # Fetch Marvel API data
 gem 'marvel_api'
 # Markdown parser
